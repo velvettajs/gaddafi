@@ -31,12 +31,8 @@
   "peerDependencies": {
     "typescript": "^5.0.0"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged"
-    }
-  },
   "scripts": {
-    "prepare": "husky"
+    "prepare": "husky",
+    "format": "prettier --write \"{src,test}/**/*.ts\""
   }
 }
