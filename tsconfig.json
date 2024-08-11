@@ -18,7 +18,8 @@
     "noPropertyAccessFromIndexSignature": false,
     "baseUrl": "src",
     "paths": {
-      "@models/*": ["lib/models"]
+      "@models": ["lib/models"],
+      "@config": ["lib/config/Configuration.ts"]
     }
   },
   "include": ["src/**/*"],

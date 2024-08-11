@@ -1,15 +1,20 @@
+import { Embed } from 'lib/api/Embed';
+import Video from 'lib/api/Video';
 import Webhook from 'lib/api/Webhook';
 
 export default class Client {
-  constructor(
-    protected url: string,
-    protected key: string
-  ) {
-    if (!url) throw new Error('Url is required.');
-    if (!key) throw new Error('Key is required.');
+  private hook: Webhook;
+  private video: Video;
+  constructor() {
+    this.hook = new Webhook();
+    this.video = new Video();
   }
-  getUrl() {
-    const webh = new Webhook();
-    console.log(webh);
+  async run() {
+    const hook = await this.hook.createWebhook();
+    const video = await this.video.getVideo();
+    if (!video.image) throw new Error('Fetched video has no image');
+    const MyEmbed = new Embed(video.url, video.image);
+    const embed = MyEmbed.createEmbed();
+    hook.send(embed);
   }
 }

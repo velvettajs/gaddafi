@@ -1,6 +1,6 @@
 import { neon } from '@neondatabase/serverless';
 import { drizzle } from 'drizzle-orm/neon-http';
-import { Database as Configuration } from './Configuration';
+import { Database as Configuration } from '@config';
 import type { DatabaseOptions, DbType } from '@velvetta/types';
 
 class DatabaseClient {
